@@ -18,6 +18,17 @@ $app->get('/', function(Request $request, Response $response){
 
 //2. Display all players
 $app->get('/players', function(Request $request, Response $response){
+    //connect to the database using doctrine DBAL
+    $queryBuilder = $this->get('DB')->getQueryBuilder();
+
+    $queryBuilder
+        ->select('id', 'name', 'team', 'position')
+        ->from('players')
+    ;
+    
+    $results = $queryBuilder->executeQuery()->fetchAll();
+
+    $response->getBody()->write(json_encode($results));
 
     return $response->withHeader('Content-Type', 'application/json');
 });
