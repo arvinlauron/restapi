@@ -7,18 +7,9 @@ use Slim\Factory\AppFactory;
 require_once __DIR__ . '/../vendor/autoload.php';
 
 $app = AppFactory::create();
-    //This is where the route will be added.
+    //Add routes
+ require_once __DIR__ . '/../routes/api.php';
+ require_once __DIR__ . '/../routes/web.php';
 
-    $app->get('/', function(Request $request, Response $response){
-        $response_array = [
-            'message'=> 'Hello RestAPI in Slim Framework'
-        ];
-
-        $response_str=json_encode($response_array);
-
-        $response->getBody()->write($response_str);
-
-        return $response;
-    });
 
 $app->run();
