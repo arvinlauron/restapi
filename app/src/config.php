@@ -9,7 +9,7 @@ class Config{
             'dbname' => 'slimphp',
             'user' => 'root',
             'password' => 'password',
-            'host' => '192.168.1.3',
+            'host' => '192.168.1.7',
             'driver' => 'pdo_mysql'
         ];
     }
@@ -17,9 +17,7 @@ class Config{
     public function getConfig(){
         return $this->dbSettings;
     }
-    
-    public function getErrorSettings() {
-        return $this->errorSettings;
-    }
+
+  
 
 }

@@ -21,12 +21,5 @@ $app = AppFactory::create();
 
  $app->addRoutingMiddleware();
 
- $errorSettings = $container->get('Config')->getErrorSettings();
-
-//  $errorMiddleware = $app->addErrorMiddleware(
-//     $errorSettings['displayErrorDetails'],
-//     $errorSettings['logErrors'],
-//     $errorSettings['logErrorDetails']
-//  );
 
 $app->run();
